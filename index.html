@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	
+	
+	
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<style type="text/css">
+		span 
+		{
+			color: red;
+		}
+		.bg{
+			background: cyan;
+			height: 700px;
+			
+		
+			width: 100%;
+			
+		}
+		.rgister{
+			margin-left: 100px;
+		}
+		.input-feild{
+			margin-left: 10px;
+		}
+		.submit{
+			margin-left: 180px;
+			margin-top: 50px;
+		}
+		form{
+			position: absolute;
+			left: 500px;
+		}
+		
+		
+	</style>
+	<script>
+
+		// name validation open
+		function check_name() 
+		{
+			var name=document.getElementById("uname").value;
+			var nm=/^[a-zA-Z ]+$/;
+			
+			 if(!name.match(nm))
+            {
+                document.getElementById("error_name_msg").innerHTML="plz enter only alphbtic";
+            }
+			
+			 else 
+			 {
+				document.getElementById("error_name_msg").innerHTML="";
+			}
+		}
+
+ 
+// name validation open
+       function check_img(){
+       	var typee=document.getElementsByName("file").value;
+			if(typee=="")
+			{
+				document.getElementById("error_image_msg").innerHTML="Plz Choose Image";
+				
+			}
+			else
+			{
+				document.getElementById("error_image_msg").innerHTML="";
+			}
+
+
+       }
+         function redio(){
+       	var radio=document.getElementsByName("radio").value;
+			if(radio=="")
+			{
+				document.getElementById("error_gender_msg").innerHTML="Plz select gender";
+				
+			}
+			else
+			{
+				document.getElementById("error_gender_msg").innerHTML="";
+			}
+
+
+       }
+       function checkbox(){
+       	var check=document.getElementsByName("checkbox").value;
+			if(check=="")
+			{
+				document.getElementById("error_hobby_msg").innerHTML="Plz select gender";
+				
+			}
+			else
+			{
+				document.getElementById("error_hobby_msg").innerHTML="";
+			}
+
+
+       }
+	
+	function check_mob(){
+
+			var UMOBILE=document.getElementById("umobile").value;
+			var mob= /^[0-9]+$/;
+			if(UMOBILE=="")
+			{
+				document.getElementById("error_mobile_msg").innerHTML="Plz Fill number";
+			}
+			else if(!UMOBILE.match(mob))
+            {
+                document.getElementById("error_mobile_msg").innerHTML="plz enter only number";
+            }
+			
+			 else 
+			 {
+				document.getElementById("error_mobile_msg").innerHTML="";
+			}
+		}
+	// mobile validation close	
+
+ // email validation close
+
+		function check_email(){
+			var email=document.getElementById("email").value;
+			 var em=/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+		
+			if(email=="")
+			{
+				document.getElementById("error_email_msg").innerHTML="Plz Fill email";
+			}
+			else if(!email.match(em))
+            {
+                document.getElementById("error_email_msg").innerHTML="Plz Use alphabate,numerical value symbol[@],!!ex-anshu@gamil.com";
+            }
+            
+			
+			 else 
+			 {
+				document.getElementById("error_email_msg").innerHTML="";
+			}
+		
+		}
+		//  function makeSubmenu(){
+		//  	var UCITY=document.getElementById("countrySelect").value;
+		// 	if(UCITY=="")
+		// 	{
+		// 		document.getElementById("error_city_msg").innerHTML="plz fill city"
+				
+		// 	}
+		// 	else
+		// 	{
+		// 		document.getElementById("error_city_msg").innerHTML="";
+				
+		// 	}
+		// }
+			
+// email validation close
+// password validation open		
+		
+function password_check()
+		{
+			var PASS=document.getElementById("pass").value;
+			
+			if(PASS=="")
+			{
+				document.getElementById("error_pass_msg").innerHTML="Plz Fill pass";
+			}
+			
+			else
+			{
+				document.getElementById("error_pass_msg").innerHTML="";
+			}
+			
+			 var EightChar=new RegExp('(?=.{8,})');
+			var UpperCase=new RegExp('(?=.*[A-Z])');
+			var LowerCase=new RegExp('(?=.*[a-z])');
+			var Num=new RegExp('(?=.*[0-9])');
+			var SpecialCharacter=new RegExp('(?=.[!@#$%^&()])');
+			if(PASS=="")
+			{
+				document.getElementById("error_pass_msg").innerHTML="Plz Fill password";
+				
+			}
+			else
+			{
+				document.getElementById("error_pass_msg").innerHTML="";
+				
+			}
+		}
+		function pass_text_show()
+				{
+					document.getElementById('close_eye').style.display="block";
+					document.getElementById('open_eye').style.display="none";
+					var PASSWORD=document.getElementById("pass");
+					PASSWORD.type="text";
+				}
+				function pass_text_hide()
+				{
+				 document.getElementById('close_eye').style.display="none";
+				 document.getElementById('open_eye').style.display="block";	
+				 var PASSWORD=document.getElementById("pass");
+				 PASSWORD.type="password";
+				}
+		// password validation close
+
+
+
+
+            // submit validation start
+
+		function validation() 
+		{			
+			var Comman_Result=true;
+			var Gender_Result=false;
+			var Hobby_Result=false;
+
+			// Start Name Validation
+			var name=document.getElementById("uname").value;
+			if(name=="")
+			{
+				document.getElementById("error_name_msg").innerHTML="Plz Fill Name";
+				Comman_Result=false;
+			 }
+
+			// End Name Validation
+
+
+			 // Start Mobile Validation
+			var UMOBILE=document.getElementById("umobile").value;
+			var UMOBILE_LENGTH=document.getElementById("umobile").value.length;
+			//alert(UMOBILE_LENGTH);
+			if(UMOBILE=="")
+			{
+				document.getElementById("error_mobile_msg").innerHTML="Plz Fill Mobile No.";
+				Comman_Result=false;
+			}
+			else 
+			{
+				if(UMOBILE_LENGTH<10)
+				{
+				document.getElementById("error_mobile_msg").innerHTML="Plz Fill Max 10 Digit";
+				}
+				else if(UMOBILE_LENGTH>10)
+				{
+				document.getElementById("error_mobile_msg").innerHTML="Plz Fill Max 10 Digit";
+				}
+				// else
+				// {
+				// document.getElementById("error_mobile_msg").innerHTML="";
+				// }
+			}
+             // End Mobile Validation
+                  
+
+                   // Start email Validation
+			var email=document.getElementById("email").value;
+			if(email=="")
+			{
+				document.getElementById("error_email_msg").innerHTML="Plz Fill email";
+				Comman_Result=false;
+			 }
+
+			// End email Validation
+
+			 // start password validation
+
+			 var PASS=document.getElementById("pass").value;
+			 var EightChar=new RegExp('(?=.{8,})');
+			var UpperCase=new RegExp('(?=.*[A-Z])');
+			var LowerCase=new RegExp('(?=.*[a-z])');
+			var Num=new RegExp('(?=.*[0-9])');
+			var SpecialCharacter=new RegExp('(?=.[!@#$%^&()])');
+			
+
+			if(PASS=="")
+			{
+				document.getElementById("error_pass_msg").innerHTML="Plz Fill password";
+				Comman_Result=false;
+			}
+			else
+			{
+				document.getElementById("error_pass_msg").innerHTML="";
+				
+			}
+			if(!EightChar.test(PASS))
+			{
+				//alert("ok");
+				document.getElementById("error1").innerHTML="String Must be Eight Character Or Longer";
+
+			}
+			else
+			{
+				document.getElementById("error1").innerHTML="";
+			}
+			if(!UpperCase.test(PASS))
+			{
+				//alert("ok");
+				document.getElementById("error2").innerHTML="String Must be 1 UpperCase";
+
+			}
+			else
+			{
+				document.getElementById("error2").innerHTML="";
+			}
+			if(!LowerCase.test(PASS))
+			{
+				//alert("ok");
+				document.getElementById("error3").innerHTML="String Must be 1 LowerCase";
+
+			}
+			else
+			{
+				document.getElementById("error3").innerHTML="";
+			}
+			if(!Num.test(PASS))
+			{
+				//alert("ok");
+				document.getElementById("error4").innerHTML="String Must be 1 Number";
+
+			}
+			else
+			{
+				document.getElementById("error4").innerHTML="";
+			}
+			if(!SpecialCharacter.test(PASS))
+			{
+				//alert("ok");
+				document.getElementById("error5").innerHTML="String Must be 1 Special Character";
+
+			}
+			else
+			{
+				document.getElementById("error5").innerHTML="";
+			}
+			// end password validation
+              
+			// Start Image Validation
+			var UIMAGE=document.getElementById("uimage").value;
+			if(UIMAGE=="")
+			{
+				document.getElementById("error_image_msg").innerHTML="Plz Choose Image";
+				Comman_Result=false;
+			}
+			else
+			{
+				document.getElementById("error_image_msg").innerHTML="";
+			}
+		
+
+			// End Image Validation
+
+			// Start City Validation
+			// var UCITY=document.getElementById("countrySelect").value;
+			// if(UCITY=="")
+			// {
+			// 	document.getElementById("error_city_msg").innerHTML="Plz Select City";
+			// 	Comman_Result=false;
+			// }
+			// else
+			// {
+			// 	document.getElementById("error_city_msg").innerHTML="";
+				
+			// }
+			
+			
+
+
+
+// End City Validation
+
+			// Start Gender Validation
+			var CountRadioButton=document.getElementsByName("gender").length;
+			var UGENDER=document.getElementsByName("gender");
+			for(i=0;i<CountRadioButton;i++)
+			{
+				if(UGENDER[i].checked==true)
+				{
+					document.getElementById("error_gender_msg").innerHTML="";
+					Gender_Result=true;
+				}
+			}
+
+			if(Gender_Result==false)
+			{ 
+				document.getElementById("error_gender_msg").innerHTML="Plz Select Gender";
+			}
+			// End Gender Validation
+
+
+			// Start Hobby Validation
+		var CountCheckBox=document.getElementsByName("hobby").length;			
+			var UHOBBY=document.getElementsByName("hobby");
+			var CountChecked=0;
+			for(i=0;i<CountCheckBox;i++)
+			{
+				if(UHOBBY[i].checked==true)
+				{
+					CountChecked++;
+				}
+			}
+			
+			if(CountChecked==0)
+			{
+				document.getElementById("error_hobby_msg").innerText="Plz Select Hobby";
+			}
+			else 
+			{
+				if(Hobby_Result==true)
+				{
+					document.getElementById("error_hobby_msg").innerText="";
+				}
+			}
+
+			
+			// End Hobby Validation
+
+
+			//Check All Result True Or False
+			if(Gender_Result==true && Comman_Result==true && Hobby_Result==false)
+			{
+				var Main_Result=true;
+			}
+			else 
+			{
+				var Main_Result=false;
+			}
+			return Main_Result;
+		}	
+
+
+
+// 		var citiesByState = {
+// Madhya_pradesh: ["Bhopal","Indore","Ujjain"],
+// Maharashtra: ["Mumbai","Pune","Nagpur"],
+// Utter_pradesh: ["Kanpur","lucknow","agra"]
+// }
+// function makeSubmenu(value) {
+// if(value.length==0) document.getElementById("citySelect").innerHTML = "<option></option>";
+// else {
+// var citiesOptions = "";
+// for(cityId in citiesByState[value]) {
+// citiesOptions+="<option>"+citiesByState[value][cityId]+"</option>";
+// }
+// document.getElementById("citySelect").innerHTML = citiesOptions;
+// }
+// }
+// function displaySelected() { var country = document.getElementById("countrySelect").value;
+// var city = document.getElementById("citySelect").value;
+// alert(country+"\n"+city);
+// }
+// function resetSelection() {
+// document.getElementById("countrySelect").selectedIndex =0;
+// document.getElementById("citySelect").selectedIndex = 0;
+
+// }
+	</script>
+</head>
+<body onload="resetSelection()">
+	<div class="bg">
+	<form action="D:\Desktop\submitt.html" onsubmit="return validation()">
+		<h2 class="rgister">Ragistration Form</h2>
+		<table>
+			<tr>
+			<td>Name</td>
+
+			<td><input type="text" id="uname" onkeyup="check_name()"  placeholder="Enter your name"></td>
+		</tr>
+		<tr> 
+			<td></td>
+
+			<td><span id="error_name_msg"></span></td>
+		</tr>
+
+		<tr>
+			<td>Mobile</td>
+			<td><input type="text" id="umobile" onkeyup="check_mob()"  placeholder="Enter your mobile"></td>
+		</tr>
+		<tr> 
+			<td></td>
+			<td><span id="error_mobile_msg"></span></td>
+		</tr>
+		<td>Email</td>
+			<td><input type="text" id="email" onkeyup="check_email()"  placeholder="Enter your Email" title="Plz Use alphabate,numerical value symbol[@#]!!ex-anshu@gamil.com"></td>
+		</tr>
+		<tr> 
+			<td></td>
+			<td><span id="error_email_msg"></span></td>
+		</tr>
+		<tr>
+		<td>Password</td>
+			<td><input type="text" id="pass" onkeyup="password_check()"  placeholder="Enter your password"></td>
+		
+      
+  </tr>
+		<tr> 
+			<td></td>
+			<td><span id="error_pass_msg"></span></td>
+			<tr>
+			<td></td>
+			<td><span id="error1"></span></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><span id="error2"></span></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><span id="error3"></span></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><span id="error4"></span></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><span id="error5"></span></td>
+		</tr>
+	</tr>
+	<tr>
+			<td>Image</td>
+			<td><input type="file" id="uimage" onchange="check_img()"   accept="application/PDF"></td>
+	</tr>
+		<tr> 
+			<td></td>
+			<td><span id="error_image_msg"></span></td>
+		</tr>
+		 <tr>
+			<!-- <t id="ucity"onclick="check_city()">City
+						</td>
+						<td><select id="countrySelect" size="1" onchange="makeSubmenu(this.value)">
+<option value="" disabled selected onclick ="check_city()">Choose State</option>
+<option onclick="check_city()">Madhya_pradesh</option>
+<option onclick="check_city()">Maharashtra</option>
+<option onclick="check_city()">Utter_pradesh</option>
+</select> 
+
+
+	<select id="citySelect" size="1" >
+<option value="" disabled selected>Choose City</option>
+<option></option>
+</select>
+</td> 
+
+		</tr> -->
+		<tr> 
+			<td></td>
+			<td><span id="error_city_msg"></span></td>
+		</tr> 
+		<tr>
+			<td>Gender</td>
+			<td><input type="radio" name="gender" class="input-feild" onchange ="redio()">Male
+				<input type="radio" name="gender" class="input-feild"onchange="redio()">Female
+			</td>
+		</tr>
+			<tr>
+				<td></td>
+			<td> <span id="error_gender_msg"></span></td>
+		</tr>
+		<tr>
+			<td id="hobyy" >Hobby</td>
+			<td><input type="checkbox" name="hobby" class="input-feild" onchange ="checkbox()">football
+				<input type="checkbox" name="hobby" class="input-feild" onchange ="checkbox()">reading
+				<input type="checkbox" name="hobby" class="input-feild" onchange ="checkbox()">dancing
+				<input type="checkbox" name="hobby" class="input-feild" onchange ="checkbox()">crecket
+			
+			
+			</td>
+		</tr>
+			<tr>
+				<td></td>
+			<td> <span id="error_hobby_msg"></span></td>
+		</tr>
+		
+
+			</table>
+			<input type="submit" class="submit" >
+	</form>
+</div>
+</body>
+</html>
